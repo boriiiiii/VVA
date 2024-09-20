@@ -1,0 +1,10 @@
+requests~=2.31.0
+pandas~=2.2.2
+numpy~=1.26.4
+matplotlib~=3.9.2
+plotly~=5.24.1
+folium~=0.17.0
+beautifulsoup4~=4.13.0b2
+scikit-learn~=1.5.0 # If you have a problem try this : pip install -U scikit-learn
+joblib~=1.4.0
+streamlit~=1.38.0
