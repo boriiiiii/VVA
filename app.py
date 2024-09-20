@@ -500,7 +500,7 @@ print(f"Average cross-validation score: {rfc_cv.mean() * 100:.2f}%")
 
 from joblib import dump
 
-dump(formula1_predict, 'formula1_model.joblib')
+dump(formula1_predict, 'model/formula1_model.joblib')
 
 
 def prediction(driver_name, grid, circuit_loc):

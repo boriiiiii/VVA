@@ -4,12 +4,12 @@ import pandas as pd
 from joblib import load
 
 # Load your model
-model = load("formula1_model.joblib")
+model = load("model/formula1_model.joblib")
 
 # Load your data
-df_formula1 = pd.read_csv("formula1.csv")
-df_circuits = pd.read_csv("circuits.csv")
-df_drivers = pd.read_csv("drivers.csv")
+df_formula1 = pd.read_csv("data/formula1.csv")
+df_circuits = pd.read_csv("data/circuits.csv")
+df_drivers = pd.read_csv("data/drivers.csv")
 
 
 def prediction(driver_name, grid, circuit_loc):
