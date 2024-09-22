@@ -113,7 +113,6 @@ df_drivers.to_csv('drivers.csv', index=False)
 df_driver_standings = df_driver_standings.merge(df_drivers[['driverId', 'Name']], on='driverId', how='left')
 
 # Lap Times
-
 df_lap_times = df_lap_times[df_lap_times['raceId'].isin(df_races['raceId'])]
 
 # Assuming df_lap_times is your DataFrame and 'milliseconds' is the column with lap times
@@ -137,7 +136,7 @@ df_lap_times['outlier'] = ~filter
 
 df_lap_times = df_lap_times[df_lap_times['milliseconds'] < 600000]
 
-df_pit_stops
+# df_pit_stops
 
 df_pit_stops = df_pit_stops[df_pit_stops['raceId'].isin(df_races['raceId'])]
 
@@ -309,7 +308,7 @@ print(mean_wins_by_grid)
 threshold = 0.5
 percentage_rain = (((df_weather['Rainfall'] > threshold).sum() / len(df_weather)) * 100).round(2)
 print("Percent of races when it rained more than 50% of the race: ", percentage_rain)
-# 4% des courses ne reprensetents meme pas une course
+# 2% des courses ne reprensetents meme pas une course
 
 races_in_rain = df_weather[df_weather['Rainfall'] > 0]
 
@@ -428,10 +427,9 @@ formula_1 = formula_1[formula_1['position'].isin(pos)]
 
 formula_1 = formula_1[formula_1['Constructor Wins'].notnull()]
 
-formula_1 = formula_1[formula_1['date'] >= '1980-01-01']
+formula_1 = formula_1[formula_1['date'] >= '2022-01-01']
 
 # formula_1['podium'] = formula_1['position'].apply(lambda x: x) # All Positions
-# formula_1['podium'] = formula_1['position'].apply(lambda x: x if 1<=x<=3 else 0) # All Positions, (this creates a false boost in accuracy)
 formula_1['podium'] = formula_1['position'].apply(lambda x: x if 1 <= x <= 3 else 0)
 
 formula_1.to_csv('formula1.csv', index=False)
@@ -533,13 +531,34 @@ def prediction(driver_name, grid, circuit_loc):
     return formula1_predict.predict(features), formula1_predict.predict_proba(features)
 
 # Drivers is the list of driver in the race, sorted by their grid position
-drivers = ['Max Verstappen', 'Charles Leclerc', 'George Russell', 'Carlos Sainz', 'Sergio Pérez', 'Fernando Alonso', 'Lando Norris', 'Oscar Piastri', 'Lewis Hamilton', 'Nico Hülkenberg', 'Yuki Tsunoda', 'Lance Stroll', 'Alexander Albon', 'Daniel Ricciardo', 'Kevin Magnussen', 'Valtteri Bottas', 'Logan Sargeant', 'Esteban Ocon', 'Pierre Gasly']
+drivers = [
+    "Lando Norris",
+    "Max Verstappen",
+    "Lewis Hamilton",
+    "George Russell",
+    "Oscar Piastri",
+    "Nico Hülkenberg",
+    "Fernando Alonso",
+    "Yuki Tsunoda",
+    "Charles Leclerc",
+    "Carlos Sainz",
+    "Alexander Albon",
+    "Sergio Pérez",
+    "Kevin Magnussen",
+    "Esteban Ocon",
+    "Daniel Ricciardo",
+    "Lance Stroll",
+    "Pierre Gasly",
+    "Valtteri Bottas",
+    "Guanyu Zhou"
+]
+
 
 # Grids is a list of grid positions from your table
-grids = list(range(1, 21))
+grids = list(range(1, 20))
 
 # Location of circuit
-circuit_loc = 'Sakhir'
+circuit_loc = 'Marina Bay'
 
 predictions = []
 
@@ -556,4 +575,4 @@ for driver_name, grid in zip(drivers, grids):
         })
     # print(f'{driver_name}, {grid}, {pred}, prob: {prob}')
 
-# print(predictions)
+print(predictions)

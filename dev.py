@@ -55,28 +55,28 @@ def main():
     # display the front end aspect
     st.markdown(html_temp, unsafe_allow_html=True)
     default_drivers = [
-        "Charles Leclerc",
-        "Oscar Piastri",
-        "Carlos Sainz",
-        "Sergio Pérez",
-        "George Russell",
-        "Max Verstappen",
-        "Fernando Alonso",
-        "Alexander Albon",
-        "Oliver Bearman",
-        "Yuki Tsunoda",
-        "Nico Hülkenberg",
-        "Lance Stroll",
-        "Daniel Ricciardo",
-        "Lando Norris",
-        "Valtteri Bottas",
-        "Guanyu Zhou",
-        "Pierre Gasly",
-        "Lewis Hamilton",
-        "Esteban Ocon"
-    ]
+    "Lando Norris",
+    "Max Verstappen",
+    "Lewis Hamilton",
+    "George Russell",
+    "Oscar Piastri",
+    "Nico Hülkenberg",
+    "Fernando Alonso",
+    "Yuki Tsunoda",
+    "Charles Leclerc",
+    "Carlos Sainz",
+    "Alexander Albon",
+    "Sergio Pérez",
+    "Kevin Magnussen",
+    "Esteban Ocon",
+    "Daniel Ricciardo",
+    "Lance Stroll",
+    "Pierre Gasly",
+    "Valtteri Bottas",
+    "Guanyu Zhou"
+]
     default_grid = '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19'
-    default_circuit = 'Baku'
+    default_circuit = 'Marina Bay'
 
     # Input for driver names
     all_drivers = ['Max Verstappen', 'Charles Leclerc', 'George Russell', 'Carlos Sainz', 'Sergio Pérez',
