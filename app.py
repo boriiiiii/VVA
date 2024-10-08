@@ -307,8 +307,8 @@ print(mean_wins_by_grid)
 
 threshold = 0.5
 percentage_rain = (((df_weather['Rainfall'] > threshold).sum() / len(df_weather)) * 100).round(2)
-print("Percent of races when it rained more than 50% of the race: ", percentage_rain)
-# 2% des courses ne reprensetents meme pas une course
+print("Percent of races when it rained more than 50% of the race: ", percentage_rain) # 2%
+
 
 races_in_rain = df_weather[df_weather['Rainfall'] > 0]
 
